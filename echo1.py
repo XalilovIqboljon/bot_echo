@@ -1,8 +1,8 @@
 import requests
 from pprint import pprint
 import os
-token = "1667389228:AAHfOEBt6VXPoOqoHIgGK13p6fW-1JUTETc"
-# token =os.environ['TOKEN']
+
+token =os.environ['token_echo']
 url = f'https://api.telegram.org/bot{token}/getUpdates'
 r=requests.get(url)
 
