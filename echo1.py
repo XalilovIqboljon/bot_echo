@@ -1,8 +1,20 @@
 import requests
 from pprint import pprint
 import os
-token = '1623452611:AAHhPixDjQH2sre-onqGwwrBaamPZ5Uvips'
-url = f'https://api.telegram.org/bot{token}/getMe'
+token = "1667389228:AAHfOEBt6VXPoOqoHIgGK13p6fW-1JUTETc"
+# token =os.environ['TOKEN']
+url = f'https://api.telegram.org/bot{token}/getUpdates'
 r=requests.get(url)
 
-pprint(r.json())
+data=r.json()
+updates=data['result']
+# print(r.url)
+for update in updates:
+    # print(update.keys())
+    message = update['message']
+    user = message['from']
+    user_id = user['id']
+    first = user.get('first_name','')
+    last = user.get('last_name','')
+    print(first,last,sep=' ')
+# pprint(updates)
